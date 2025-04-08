@@ -1,159 +1,69 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import shutil
 
-export default function VeloryinHomePage() {
-  const [showContactOptions, setShowContactOptions] = useState(false);
+# Zip the prepared React project directory
+project_path = "/mnt/data/veloryin-github-ready"
+zip_path = "/mnt/data/veloryin-github-ready.zip"
 
-  return (
-    <main className="min-h-screen bg-gradient-to-b from-[#0a0c1b] via-[#0e122b] to-[#0a0c1b] text-white font-sans overflow-hidden relative">
-      <motion.div 
-        initial={{ opacity: 0 }} 
-        animate={{ opacity: 0.1 }} 
-        transition={{ duration: 1 }} 
-        className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(130,170,255,0.1),transparent_70%)] z-0 pointer-events-none animate-pulse"
-      />
-      <motion.div 
-        initial={{ scale: 1.1, opacity: 0 }} 
-        animate={{ scale: 1, opacity: 1 }} 
-        transition={{ duration: 1.4, ease: "easeOut" }}
-        className="absolute top-0 left-0 w-full h-full bg-gradient-radial from-[#1b1e38] via-transparent to-[#0a0c1b] opacity-20 z-0 pointer-events-none"
-      />
-
-      <motion.section
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.4 }}
-        className="relative z-10 text-center py-32 px-6 overflow-hidden"
-      >
-        <motion.h1
-          initial={{ opacity: 0, y: -80 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.6, type: "spring" }}
-          className="text-5xl md:text-7xl font-extrabold text-[#84b5ff] drop-shadow-[0_0_40px_rgba(130,170,255,0.4)] mb-5 tracking-tight"
-        >
-          Veloryin
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.6, duration: 1 }}
-          className="text-base md:text-lg text-gray-300 max-w-3xl mx-auto"
-        >
-          India’s most elite influencer collective. Where culture, trendsetters, and iconic brands collide.
-        </motion.p>
-      </motion.section>
-
-      <section className="grid md:grid-cols-2 gap-12 px-8 md:px-16 py-24 relative z-10">
-        {[{
-          title: "For Influencers & Celebrities",
-          description1: "You don’t just create content. You inspire.",
-          description2: "Veloryin gives you exclusive access to India’s most premium campaigns, legacy brand deals & unmatched creative support.",
-          buttonText: "Join the Legacy",
-          formButtonText: "Fill the Form",
-          link: "https://forms.gle/k44CPozkMLGNfZFd6"
-        }, {
-          title: "For Brands",
-          description1: "Work with India’s most powerful creators – verified, viral & vision-driven.",
-          description2: "From rapid matchmaking to complete campaign execution, Veloryin delivers results in hours, not weeks.",
-          buttonText: "Launch Campaign",
-          formButtonText: "Fill the Form",
-          link: "https://forms.gle/87WWTYy4dWYKyxGK9"
-        }].map((item, i) => (
-          <motion.div
-            key={item.title}
-            initial={{ opacity: 0, y: 80 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, delay: i * 0.3 }}
-            viewport={{ once: true }}
-          >
-            <motion.div whileHover={{ scale: 1.03 }} transition={{ duration: 0.4 }}>
-              <Card className="bg-[#101325]/60 backdrop-blur-md border border-[#84b5ff] text-white rounded-3xl shadow-[0_0_40px_rgba(130,170,255,0.2)]">
-                <CardContent className="p-8 space-y-5">
-                  <h2 className="text-2xl md:text-3xl font-bold text-[#84b5ff] drop-shadow-lg">{item.title}</h2>
-                  <p className="text-sm text-gray-300">{item.description1}</p>
-                  <p className="text-sm text-gray-300">{item.description2}</p>
-                  <div className="flex gap-4 flex-wrap">
-                    <motion.a href={item.link} target="_blank" whileHover={{ scale: 1.05 }}>
-                      <Button className="bg-[#84b5ff] text-black text-sm font-semibold rounded-xl px-5 py-2 shadow-lg hover:bg-white hover:text-black">
-                        {item.buttonText}
-                      </Button>
-                    </motion.a>
-                    <motion.a href={item.link} target="_blank" whileHover={{ scale: 1.05 }}>
-                      <Button variant="outline" className="border-[#84b5ff] text-[#84b5ff] text-sm font-semibold px-5 py-2 hover:bg-[#84b5ff] hover:text-black">
-                        {item.formButtonText}
-                      </Button>
-                    </motion.a>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          </motion.div>
-        ))}
-      </section>
-
-      <motion.section
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1.2 }}
-        className="text-center py-28 px-6 bg-gradient-to-b from-[#0a0c1b] via-[#0e122b] to-[#0a0c1b] border-t border-[#84b5ff] relative z-10"
-      >
-        <motion.h2
-          initial={{ y: 40, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1 }}
-          className="text-3xl md:text-4xl font-bold text-[#84b5ff] mb-5 drop-shadow-lg"
-        >
-          Let’s Make Your Brand Unforgettable
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          className="text-base text-gray-400 max-w-2xl mx-auto mb-8"
-        >
-          Whether you're launching or dominating, Veloryin gives you unmatched access to creators who move culture and drive results.
-        </motion.p>
-        <div className="space-y-4">
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            onClick={() => setShowContactOptions(!showContactOptions)}
-          >
-            <Button className="bg-[#84b5ff] text-black text-base font-semibold px-8 py-3 rounded-xl shadow-xl hover:opacity-90">
-              Contact Us
-            </Button>
-          </motion.button>
-
-          <AnimatePresence>
-            {showContactOptions && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 20 }}
-                transition={{ duration: 0.6 }}
-                className="space-y-3 mt-6"
-              >
-                <a href="mailto:veloryin@gmail.com" className="block text-sm text-[#84b5ff] underline hover:text-white">
-                  Email: veloryin@gmail.com
-                </a>
-                <a href="https://instagram.com/veloryin" target="_blank" className="block text-sm text-[#84b5ff] underline hover:text-white">
-                  Instagram: @veloryin
-                </a>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
-      </motion.section>
-
-      <motion.footer
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-        className="bg-[#0a0c1b] text-gray-500 text-center py-8 border-t border-[#84b5ff] relative z-10"
-      >
-        © 2025 Veloryin. where influence meets intuition.
-      </motion.footer>
-    </main>
-  );
+# Sample project structure to include
+project_structure = {
+    "veloryin-github-ready": {
+        "index.html": """
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Veloryin</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+""",
+        "package.json": """
+{
+  "name": "veloryin",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "framer-motion": "^11.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.0.0",
+    "vite": "^5.0.0"
+  }
 }
+""",
+        "vite.config.js": """
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+
+export default defineConfig({
+  plugins: [react()],
+});
+""",
+        "src": {
+            "main.jsx": """
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+import './index.css';
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+""",
+            "App.jsx": """
+import VeloryinHomePage from './pages/VeloryinHomePage';
+
+function App
